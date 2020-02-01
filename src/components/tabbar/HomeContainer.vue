@@ -9,39 +9,39 @@
     <!-- 九宫格到六宫格的改造 -->
     <ul class="mui-table-view mui-grid-view mui-grid-9 ">
       <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-        <a href="#">
-          <img src="../../../static/images/六宫格小图标/menu1.png" alt="">
+        <router-link to="/home/newslist">
+          <img src="../../../static/images/icons/menu1.png" alt="">
           <div class="mui-media-body">新闻资讯</div>
-        </a>
+        </router-link>
       </li>
       <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-        <a href="#">
-          <img src="../../../static/images/六宫格小图标/menu2.png" alt="">
+        <router-link to="/home/photolist">
+          <img src="../../../static/images/icons/menu2.png" alt="">
             <!-- <span class="mui-badge">5</span> -->
           <div class="mui-media-body">图片分享</div>
-        </a>
+        </router-link> 
       </li>
       <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-        <a href="#">
-          <img src="../../../static/images/六宫格小图标/menu3.png" alt="">
+        <router-link to="/home/goodslist">
+          <img src="../../../static/images/icons/menu3.png" alt="">
           <div class="mui-media-body">商品购买</div>
-        </a>
+        </router-link>
       </li>
       <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
         <a href="#">
-          <img src="../../../static/images/六宫格小图标/menu4.png" alt="">
+          <img src="../../../static/images/icons/menu4.png" alt="">
           <div class="mui-media-body">留言反馈</div>
         </a>
       </li>
       <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
         <a href="#">
-          <img src="../../../static/images/六宫格小图标/menu5.png" alt="">
+          <img src="../../../static/images/icons/menu5.png" alt="">
           <div class="mui-media-body">视频专区</div>
         </a>
       </li>
       <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
         <a href="#">
-          <img src="../../../static/images/六宫格小图标/menu6.png" alt="">
+          <img src="../../../static/images/icons/menu6.png" alt="">
           <div class="mui-media-body">联系我们</div>
         </a>
       </li>
@@ -57,23 +57,38 @@ import { Toast } from "mint-ui";
 export default {
   data() {
     return {
-      lunbotuList: [] //保存轮播图的数组
+      lunbotuList: [  //保存轮播图的数组
+        {
+          id:1,
+          img:'../../../static/images/lunbotu/about2.jpg'
+        },{
+          id:2,
+          img:'../../../static/images/lunbotu/pic03.jpg'
+        },{
+          id:4,
+          img:'../../../static/images/lunbotu/pic08.jpg'
+        },{
+          id:3,
+          img:'../../../static/images/lunbotu/pic07.jpg'
+        }
+      ] 
     };
   },
   methods: {
-    getLunbotu() {
-      axios.get("http://www.liulongbin.top:3005/api/getlunbo").then(result => {
-        console.log(result.data.message);
-        if (result.data.status == 0) {
-          this.lunbotuList = result.data.message;
-        } else {
-          Toast("加载轮播图失败");
-        }
-      });
-    }
+    // getLunbotu() {
+    //   axios.get("http://www.liulongbin.top:3005/api/getlunbo").then(result => {
+    //     console.log(result.data.message);
+    //     if (result.data.status == 0) {
+    //       this.lunbotuList = result.data.message;
+    //       // console.log("ok")
+    //     } else {
+    //       Toast("加载轮播图失败");
+    //     }
+    //   });
+    // }
   },
   created() {
-    this.getLunbotu();
+    // this.getLunbotu();
   }
 };
 </script>
